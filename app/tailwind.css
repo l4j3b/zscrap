@@ -1,3 +1,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.brand-tw-gradient {
+  @apply overflow-visible bg-gradient-to-tr;
+  @apply from-violet-700 from-20% via-pink-500 via-60% to-orange-500 to-90%;
+  @apply bg-clip-text text-transparent transition duration-300;
+  @apply hover:from-0% hover:via-40% hover:to-70%;
+}
+
+@layer base {
+  :root {
+    /*
+		 * Used to test colors in VS code as we can't use color space functions in tailwind (breaks opacity)
+		 * https://tailwindcss.com/docs/customizing-colors#using-css-variables
+		 */
+    --__dev: hsl(0, 0%, 100%);
+
+    --brand-gradient-color-1: theme('colors.violet.700');
+    --brand-gradient-color-2: theme('colors.pink.500');
+    --brand-gradient-color-3: theme('colors.orange.500');
+
+    /* --brand-gradient-color-1: theme("colors.pink.700");
+		--brand-gradient-color-2: theme("colors.orange.500");
+		--brand-gradient-color-3: theme("colors.yellow.500");
+
+		 --brand-gradient-color-1: theme("colors.indigo.700");
+		--brand-gradient-color-2: theme("colors.blue.500");
+		--brand-gradient-color-3: theme("colors.cyan.500");
+
+    /* --brand-gradient-color-1: theme("colors.teal.600");
+		--brand-gradient-color-2: theme("colors.green.500");
+		--brand-gradient-color-3: theme("colors.lime.500"); */
+
+    --brand-gradient-stop-1: 10%;
+    --brand-gradient-stop-2: 60%;
+    --brand-gradient-stop-3: 90%;
+
+    --brand-gradient: linear-gradient(
+      to top right,
+      var(--brand-gradient-color-1) var(--brand-gradient-stop-1),
+      var(--brand-gradient-color-2) var(--brand-gradient-stop-2),
+      var(--brand-gradient-color-3) var(--brand-gradient-stop-3)
+    );
+
+    --radius: 0.5rem;
+
+    /* --background: 0 0% 100%; */
+    /* --background: 0 0% 97.8%; */
+    --background: 230 0.6% 98%;
+    --foreground: 230 10.4% 20.1%;
+
+    /* --card: 0 0% 98.82%; */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 260 100% 60%;
+    --primary-foreground: 210 0.6% 98%;
+
+    /* --secondary: 30, 94%, 60%  */
+    /* --secondary-foreground: 300 39.3% 11%; */
+
+    --muted: 230 14.3% 95.9%;
+    --muted-foreground: 230 10.4% 50.1%;
+
+    --accent: 230 15% 100%;
+    --accent-foreground: 230 10.4% 0%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 0.6% 98%;
+
+    --border: 230 13% 90.5%;
+    /* --input: 300 13% 91%; */
+    --input: 230 15% 100%;
+    --ring: 260 100% 60%;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  [data-theme='dark'],
+  :root[class~='dark'] {
+    --background: 230 18.9% 0%;
+    --foreground: 300 10.6% 80%;
+
+    /* --card: 300 26.32% 11.45%; */
+    /* --card: 300 26.15% 6.55%; */
+    /* --card: 227 26% 11.45%; */
+    --card: 230 14.9% 8.5%;
+    --card-foreground: 210 0.6% 98%;
+
+    /* --popover: 224 71.4% 4.1%; */
+    --popover: 230 10.9% 4.95%;
+    --popover-foreground: 300 0.6% 98%;
+
+    /* --primary: 295 90% 50%; */
+    /* --primary-foreground: 210 20% 98%; */
+
+    /* --secondary: 215 272 10.9%); */
+    /* --secondary-foreground: 210 20% 98%); */
+
+    --muted: 230 10.9% 16.9%;
+    --muted-foreground: 217.9 0.6% 40.9%;
+
+    --accent: 230 14.9% 5%;
+    --accent-foreground: 210 0.6% 100%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 0.6% 98%;
+
+    --border: 230 8.9% 16.8%;
+    --input: 230 16.9% 6%;
+    --ring: 295 90% 50%;
+    --ring: 260 100% 60%;
+
+    --chart-1: 300 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}

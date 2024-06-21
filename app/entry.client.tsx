@@ -1,18 +1,36 @@
-/**
- * By default, Remix will handle hydrating your app on the client for you.
- * You are free to delete this file if you'd like to, but if you ever want it revealed again, you can run `npx remix reveal` ✨
- * For more information, see https://remix.run/file-conventions/entry.client
- */
+import { RemixBrowser, useLocation, useMatches } from '@remix-run/react';
+import * as Sentry from '@sentry/remix';
+import { StrictMode, startTransition, useEffect } from 'react';
+import { hydrateRoot } from 'react-dom/client';
 
-import { RemixBrowser } from "@remix-run/react";
-import { startTransition, StrictMode } from "react";
-import { hydrateRoot } from "react-dom/client";
+Sentry.init({
+  // enabled: !import.meta.env.DEV,
+  enabled: true,
+  environment: import.meta.env.DEV ? 'development' : 'production',
+  dsn: 'https://<public-key>@<org-id>.ingest.us.sentry.io/<project-id>',
+  tracesSampleRate: 1.0,
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+  integrations: [
+    Sentry.browserTracingIntegration({
+      useEffect,
+      useLocation,
+      useMatches,
+    }),
+    // eslint-disable-next-line import/namespace
+    Sentry.replayIntegration(),
+  ],
+});
 
 startTransition(() => {
   hydrateRoot(
     document,
     <StrictMode>
       <RemixBrowser />
-    </StrictMode>
+    </StrictMode>,
   );
 });
+
+// if (import.meta.env.DEV) {
+//   import('@spotlightjs/spotlight').then((Spotlight) => Spotlight.init({ injectImmediately: true }));
+// }

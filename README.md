@@ -1,9 +1,21 @@
-# Welcome to Remix + Cloudflare!
+# zScrap
+
+The app is using Remix + Cloudflare.
 
 - 📖 [Remix docs](https://remix.run/docs)
 - 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
 
 ## Development
+
+Configure env:
+
+```sh
+cp .env.example .env
+
+# Adjust the values as needed.
+
+cp .env .dev.vars
+```
 
 Run the dev server:
 
@@ -28,11 +40,32 @@ npm run typegen
 
 You will need to rerun typegen whenever you make changes to `wrangler.toml`.
 
-## Deployment
+## Styling
+
+Styling is done via [Tailwind CSS](https://tailwindcss.com/).
+
+## Misc
+
+### Stripe
+
+For local development, you can use the test card number `4242 4242 4242 4242`.
+
+To test the webhook locally, you can use [Stripe CLI](https://stripe.com/docs/stripe-cli).
+
+```sh
+stripe login
+stripe listen --forward-to localhost:5173/webhooks/stripe
+```
+
+### Manual deployment
+
+Deployment should be automatic.
+
+Below are the instructions to manually deploy if needed.
 
 > [!WARNING]  
-> Cloudflare does _not_ use `wrangler.toml` to configure deployment bindings.
-> You **MUST** [configure deployment bindings manually in the Cloudflare dashboard][bindings].
+> Cloudflare uses `wrangler.toml` to configure deployment bindings and non protected variables.
+> Secrets are set in the Cloudflare dashboard.
 
 First, build your app for production:
 
@@ -46,8 +79,14 @@ Then, deploy your app to Cloudflare Pages:
 npm run deploy
 ```
 
-[bindings]: https://developers.cloudflare.com/pages/functions/bindings/
+## Checklist before launch
 
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+- [ ] Config contact email
+- [ ] Config social media links
+- [ ] Config legal pages
+- [ ] Config Stripe
+- [ ] Config Cloudflare
+- [ ] Config Analytics
+- [ ] Config Supabase
+- [ ] Whitelisting
+- [ ] Config webhook on: <https://dashboard.stripe.com/test/webhooks>

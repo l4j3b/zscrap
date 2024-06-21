@@ -1,0 +1,18 @@
+{
+  "artificialDelayMilliseconds": 1000,
+  "keepExistingTerminalsOpen": false,
+  "runOnStartup": true,
+  "terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "main"
+        },
+        {
+          "name": "dev",
+          "commands": ["npm run dev"]
+        }
+      ]
+    }
+  ]
+}

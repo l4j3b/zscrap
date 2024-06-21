@@ -1,0 +1,37 @@
+{
+  "svg.preview.background": "transparent",
+  "cSpell.words": [
+    "biomejs",
+    "clsx",
+    "Hono",
+    "ilike",
+    "isbot",
+    "localforage",
+    "lucide",
+    "nprogress",
+    "openai",
+    "Revalidator",
+    "sonner",
+    "zscrap",
+    "spotlightjs",
+    "supabase",
+    "tailwindcss",
+    "typecheck",
+    "Typegen"
+  ],
+  "aide.probeInviteCode": "fyn0z",
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "jest.runMode": "on-demand"
+}

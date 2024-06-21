@@ -1,0 +1,8 @@
+/.github/CODEOWNERS @jebenois
+
+/app/config.ts @jebenois
+/app/lib/auth.server @jebenois
+
+# These owners will be the default owners for everything in
+# the repo.
+*        @jebenois
