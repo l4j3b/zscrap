@@ -6,7 +6,7 @@ import {
 } from '@remix-run/cloudflare';
 import type { User } from '@supabase/supabase-js';
 import { type Context, Hono } from 'hono';
-import { basicAuth } from 'hono/basic-auth';
+// import { basicAuth } from 'hono/basic-auth';
 import { secureHeaders } from 'hono/secure-headers';
 import { staticAssets } from 'remix-hono/cloudflare';
 import { remix } from 'remix-hono/handler';
@@ -65,17 +65,17 @@ app.use('*', (c, next) => {
  * Basic auth middleware for the whole app (will be removed when the app becomes public).
  */
 
-app.use('*', (c, next) => {
-  // Only enable basic auth in production while the app is in development
-  if (isProd(c)) {
-    return basicAuth({
-      username: c.env.BASIC_AUTH_USERNAME,
-      password: c.env.BASIC_AUTH_PASSWORD,
-    })(c, next);
-  }
+// app.use('*', (c, next) => {
+//   // Only enable basic auth in production while the app is in development
+//   if (isProd(c)) {
+//     return basicAuth({
+//       username: c.env.BASIC_AUTH_USERNAME,
+//       password: c.env.BASIC_AUTH_PASSWORD,
+//     })(c, next);
+//   }
 
-  return next();
-});
+//   return next();
+// });
 
 /*
  * Middleware responsible for:
