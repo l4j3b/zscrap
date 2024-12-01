@@ -86,7 +86,7 @@
     "leva": "^0.9.35",
     "localforage": "^1.10.0",
     "lodash-es": "^4.17.21",
-    "lucide-react": "^0.403.0",
+    "lucide-react": "^0.461.0",
     "nprogress": "^0.2.0",
     "openai": "^4.52.2",
     "p-limit": "^6.1.0",
