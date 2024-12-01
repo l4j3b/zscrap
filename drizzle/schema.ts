@@ -90,7 +90,7 @@ export const organizationsTable = pgTable('organizations', {
   id: uuid('id').primaryKey().defaultRandom(),
   name: varchar('name', { length: 256 }).unique().notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
-  apiCredits: doublePrecision('api_credits').notNull().default(50),
+  apiCredits: doublePrecision('api_credits').notNull().default(10),
   stripeCustomerId: varchar('stripe_customer_id', { length: 256 }),
 });
 

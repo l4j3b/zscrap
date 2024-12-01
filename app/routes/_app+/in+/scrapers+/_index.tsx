@@ -18,16 +18,6 @@ export const meta: MetaFunction = () => {
 export async function loader({ context }: LoaderFunctionArgs) {
   const { activeOrganizationId } = context.getSession();
 
-  // const scrapers = context.db.query.scrapersTable
-  //   .findMany({
-  //     where: eq(scrapersTable.organizationId, activeOrganizationId),
-  //     orderBy: [desc(scrapersTable.createdAt)],
-  //     with: {
-  //       createdBy: true,
-  //     },
-  //   })
-  //   .then((scrapers) => scrapers);
-
   const scrapersQuery = context.db
     .select({
       id: scrapersTable.id,
