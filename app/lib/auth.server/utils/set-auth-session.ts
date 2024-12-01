@@ -3,7 +3,7 @@ import { type AppLoadContext } from '@remix-run/cloudflare';
 export function setAuthSession(
   context: AppLoadContext,
   {
-    // whitelisted = false,
+    whitelisted = false,
     sessionUserId,
     displayName,
     username,
@@ -21,19 +21,19 @@ export function setAuthSession(
   },
 ) {
   // // If the user is whitelisted, don't set the session
-  // if (!whitelisted) {
-  //   context.destroySession();
+  if (!whitelisted) {
+    context.destroySession();
 
-  //   throw new Error('waitlisted');
-  // } else {
-  // Set auth session
-  context.setSession({
-    sessionUserId,
-    displayName,
-    username,
-    email,
-    isAdmin,
-    activeOrganizationId,
-  });
-  // }
+    throw new Error('waitlisted');
+  } else {
+    // Set auth session
+    context.setSession({
+      sessionUserId,
+      displayName,
+      username,
+      email,
+      isAdmin,
+      activeOrganizationId,
+    });
+  }
 }

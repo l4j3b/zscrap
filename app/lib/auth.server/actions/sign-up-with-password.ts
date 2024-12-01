@@ -52,7 +52,7 @@ export async function signUpWithPassword({
     throw new Error('An account with that email already exists. Please sign in instead.');
   }
 
-  setAuthSession(context, {
+  return setAuthSession(context, {
     whitelisted,
     sessionUserId: supabaseUser.id,
     email,

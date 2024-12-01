@@ -36,7 +36,7 @@ export async function action({ request, context }: ActionFunctionArgs) {
   }
 
   setAuthSession(context, {
-    whitelisted: true,
+    whitelisted: user.whitelisted,
     sessionUserId: user.id,
     displayName: user.displayName,
     username: user.username,

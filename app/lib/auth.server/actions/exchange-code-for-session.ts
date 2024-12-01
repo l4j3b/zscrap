@@ -72,7 +72,7 @@ export async function exchangeCodeForSession({
     throw new Error('User does not have an active organization.');
   }
 
-  setAuthSession(context, {
+  return setAuthSession(context, {
     sessionUserId: supabaseUser.id,
     email: supabaseUser.email,
     displayName: dbUser.displayName,
