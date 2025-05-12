@@ -113,8 +113,8 @@ a.primary {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  border-radius: 0.5rem; /* match rounded-lg */
-  background: black; /* solid interior background */
+  border-radius: 0.5rem;
+  background: white; /* Light theme background */
   color: var(--foreground);
   transition: background-position 0.3s ease;
 
