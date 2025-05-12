@@ -2,7 +2,7 @@ import { sentry } from '@hono/sentry';
 import {
   type AppLoadContext,
   createWorkersKVSessionStorage,
-  ServerBuild,
+  type ServerBuild,
 } from '@remix-run/cloudflare';
 import type { User } from '@supabase/supabase-js';
 import { type Context, Hono } from 'hono';
